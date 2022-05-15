@@ -1,0 +1,35 @@
+<?php session_start();
+if (!empty($_POST)) {
+    if ($_POST['uzytkownik'] == 'admin' && $_POST['haslo'] == 'tajne') {
+        $_SESSION['zalogowany'] = 'tak';
+        header("Location: tajne.php");
+        exit();
+    }
+    else{
+        header("Location: logowanie.php?komunikat=1");
+        exit();
+    }
+} ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WIT</title>
+</head>
+
+<body>
+    <?php if (isset($_GET['komunikat']) && $_GET['komunikat'] == 1) : ?> 
+        <p style='color: red;'>Błędny użytkownik lub hasło. Najpierw musisz sie zalogowac!</p> 
+    <?php endif; ?> 
+    <form method="post" action="logowanie.php"> Nazwa użytkownika: 
+        <input type="text" name="uzytkownik" /> <br /> Hasło: 
+        <input type="password" name="haslo" /> <br /> <br /> 
+        <button type="submit">Zaloguj</button>
+       
+    </form>
+</body>
+
+</html>
