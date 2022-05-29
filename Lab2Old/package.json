@@ -1,0 +1,17 @@
+{
+  "name": "ajax-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "tabWidth": 4
+  }
+}

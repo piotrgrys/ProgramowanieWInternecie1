@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Calculator</title>
+    <style>
+        #calculator-form {
+            display: flex;
+        }
+
+        #calculator-form>* {
+            margin-right: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="calculator-form"> 
+        <div style="display: flex;flex-direction: column;">
+            <div>
+                <input type="text" id="x-txt" name="x-txt"> 
+                <select id="operation"  name="operation">
+                    <option value="ADD">+</option>
+                    <option value="SUBTRACT">-</option>
+                    <option value="MULTIPLY">*</option>
+                    <option value="DIVIDE">/</option> </select> 
+                </select>
+                <input type="text" id="y-txt" name="y-txt"> 
+                <span>=</span> 
+                <input type="text" id="result-txt" disabled> 
+                <span>(wynik lokalny)</span> 
+                <input type="text" id="result-txt-server" name="result-txt-server" disabled> 
+                <span>(wynik z serwera)</span> 
+                <button type="submit">Licz</button>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td><button type="button" onclick="populateTextarea('1')">1</button></td>
+                        <td><button type="button" onclick="populateTextarea('2')">2</button></td>
+                        <td><button type="button" onclick="populateTextarea('3')">3</button></td>
+                    </tr>
+                    <tr><td><button type="button" onclick="populateTextarea('4')">4</button></td>
+                        <td><button type="button" onclick="populateTextarea('5')">5</button></td>
+                        <td><button type="button" onclick="populateTextarea('6')">6</button></td>
+                    </tr>
+                    <tr><td><button type="button" onclick="populateTextarea('7')">7</button></td>
+                        <td><button type="button" onclick="populateTextarea('8')">8</button></td>
+                        <td><button type="button" onclick="populateTextarea('9')">9</button></td>
+                    </tr>
+                    <tr><td><button type="button" onclick="populateTextarea('0')">0</button></td>
+                        <td colspan="2">
+                            <button type="button" id="btnPrzelacznik" value="Input:X" onclick="zmienPrzelacznik()">Input:X</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </form>
+    <p id="history"></p>
+    <script src="build/Calculator.js"></script>
+    <script src="build/CalculatorHistory.js"></script>
+    <script src="build/Form.js"></script>
+    <script> const form = new Form(new Calculator(), new CalculatorHistory()); form.init(); </script>
+    <script type="text/javascript">
+        function populateTextarea(value) {
+    
+            var elementPrzelacznik = document.getElementById("btnPrzelacznik"); 
+            if(elementPrzelacznik.value==='Input:X')
+            {
+                var elementX = document.getElementById("x-txt"); 
+                elementX.value=elementX.value+value
+                elementX.textContent=elementX.value+value
+            }
+            else
+            {
+                var elementY = document.getElementById("y-txt"); 
+                elementY.value=elementY.value+value
+                elementY.textContent=elementY.value+value
+            }
+            return false;
+    
+        }
+        function zmienPrzelacznik()
+        {
+            var elementPrzelacznik = document.getElementById("btnPrzelacznik"); 
+            if(elementPrzelacznik.value==='Input:X')
+            {
+                elementPrzelacznik.value='Input:Y'
+                elementPrzelacznik.textContent='Input:Y'
+            }
+            else
+            {
+                elementPrzelacznik.value='Input:X'
+                elementPrzelacznik.textContent='Input:X'
+            }
+            return false;
+        }
+    
+    </script>
+</body>
+
+</html>

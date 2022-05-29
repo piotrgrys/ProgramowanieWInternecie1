@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Przykład 2</title>
+</head>
+
+<body>
+	<h2>Przykład 2</h2>
+
+	<h3>Wywołanie AJAX - wysłanie danych z pola formularza do serwera</h3>
+
+	<p>
+		<form action="przyklad2.php" id="form">
+			<input type="text" name="pole">
+			<button type="submit">wyślij dane</button>
+		</form>
+	</p>
+
+	<p id="wynik"></p>
+
+	<script src="build/Przyklad2.js"></script>
+	<script>
+		const obj = new Przyklad2()
+		obj.init()
+	</script>
+</body>
+
+</html>
