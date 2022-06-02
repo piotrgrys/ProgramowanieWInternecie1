@@ -1,0 +1,23 @@
+
+
+<h1>Liczby parzyste:</h1>
+
+<ul>
+<?php foreach ($liczbyparzyste as $nr => $liczba): // dostęp do zmiennej widoku bezpośrednio ?>
+	<li>
+		<?=$nr+1 ?>:
+		<strong><?=$liczba ?></strong>
+	</li>
+<?php endforeach; ?>
+</ul>
+
+<h1>Liczby nieparzyste:</h1>
+
+<ul>
+<?php foreach ($liczbynieparzyste as $nr => $liczba): // dostęp do zmiennej widoku bezpośrednio ?>
+	<li>
+		<?=$nr+1 ?>:
+		<strong><?=$liczba ?></strong>
+	</li>
+<?php endforeach; ?>
+</ul>
